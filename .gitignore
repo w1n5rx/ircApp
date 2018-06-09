@@ -272,4 +272,12 @@ compile_commands.json
 
 
 
+# Meteor.gitignore (https://gist.github.com/iMunshi/d69dba7b89eff38d68cd)
+# ------------- meteor gitignore
+
+.meteor/local
+.meteor/meteorite
+
+
+
 # Link to add further gitignore https://github.com/github/gitignore
