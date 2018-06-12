@@ -19,13 +19,16 @@
     "react-addons-test-utils": "^15.6.2",
     "react-addons-transition-group": "^15.6.2",
     "react-addons-update": "^15.6.2",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2",
+    "react-helmet": "^3.1.0",
+    "react-router": "^4.3.1",
+    "simpl-schema": "^1.5.0"
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.js",
-      "server": "server/main.js"
+      "client": "client/index.js",
+      "server": "server/index.js"
     },
-    "testModule": "test/main.js"
+    "testModule": "test/index.js"
   }
 }
