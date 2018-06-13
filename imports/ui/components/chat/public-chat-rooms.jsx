@@ -3,6 +3,9 @@ import React from 'react';
 import ReactHelmet from 'react-helmet';
 import moment from 'moment';
 
+// App Imports
+import ChatRoomItem from './chat-room-item';
+
 // Public Chat Rooms Component
 class PublicChatRooms extends React.Component {
     componentWillMount() {
@@ -18,10 +21,10 @@ class PublicChatRooms extends React.Component {
     }
         
     renderChatRooms() {
-        let tweetsHtml;
+        let chatRoomsList;
 
         if (this.props.publicChatRoomsLoaded) {
-            tweetsHtml = (
+            chatRoomsList = (
                 this.props.publicChatRooms.map((chatRoom) => (
                     <div className="card" key={ chatRoom._id } onClick={ ()=>this.selectChatRoom(chatRoom) }>
                         <div className="card-header">
@@ -37,12 +40,12 @@ class PublicChatRooms extends React.Component {
                 ))
             )
         } else {
-            tweetsHtml = (
+            chatRoomsList = (
                 <p>Please wait...</p>
             )
         }
 
-        return tweetsHtml;
+        return chatRoomsList;
     }
 
     render() {
@@ -57,7 +60,7 @@ class PublicChatRooms extends React.Component {
                 </div>
 
                 <div className="col s12 m6">
-                    <p>{ this.state.selectedChatRoomId ? this.state.selectedChatRoomId+' selected' : 'Select a chat room to begin' }</p>
+                    <p>Select a chat room to begin.</p>
                 </div>
             </div>
         )

@@ -18,6 +18,11 @@ ChatRooms.schema = new SimpleSchema({
     title: {
         type: String
     },
+    // Chat room description
+    description: {
+        type: String
+    },
+        
     isPubic: {
         type: Boolean
     },

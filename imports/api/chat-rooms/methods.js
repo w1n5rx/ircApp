@@ -10,12 +10,16 @@ export const add = new ValidatedMethod({
     name: 'ChatRooms.add',
 
     validate: new SimpleSchema({
-        tweet: {
+        title: {
+            type: String
+        },
+            
+        description: {
             type: String
         }
     }).validator(),
 
-    run({ title }) {
+    run({ title, description }) {
         console.log('M - ChatRooms.add / run');
 
         let response = {
@@ -26,6 +30,7 @@ export const add = new ValidatedMethod({
         if(title != '') {
             let success = ChatRooms.insert({
                 title,
+                description,
                 userId: Meteor.userId()
             });
 
