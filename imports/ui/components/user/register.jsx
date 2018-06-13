@@ -3,8 +3,11 @@
 import React from 'react';
 import ReactHelmet from 'react-helmet';
 
-// User Login Component
-class UserLogin extends React.Component {
+// App
+import * as UserMethods from '../../../api/users/methods';
+
+// User Register Component
+class UserRegister extends React.Component {
 
     constructor(props) {
         super(props);
@@ -20,20 +23,27 @@ class UserLogin extends React.Component {
     onSubmit(event) {
         event.preventDefault();
 
-        console.log('E - submit #form-login');
+        console.log('E - submit #form-register');
 
         this.setState({ isLoading: true });
 
-        if(this.state.username != '' && this.state.password != '') {
-            Meteor.loginWithPassword(this.state.username, this.state.password, (error) => {
-                console.log('M - loginWithPassword / callback');
+        let input = {};
+        input.username = this.state.username;
+        input.password = this.state.password;
+        console.log(input);
+
+        if(input.username != '' && input.password != '') {
+            UserMethods.register.call(input, (error, response) => {
+                console.log('M - users.register / callback');
 
                 this.setState({ isLoading: false });
 
                 if(error) {
                     this.setState({ error: error.reason });
                 } else {
-                    this.context.router.push('/');
+                    if(response.success) {
+                        this.context.router.push('/login');
+                    }
                 }
             });
         } else {
@@ -49,16 +59,16 @@ class UserLogin extends React.Component {
 
     render() {
         return (
-            <div className="col s12 m8">
+            <div className="col s12 m4">
                 <ReactHelmet
-                    title="Login - Simple Chat"
+                    title="Register for Slack-like chat app"
                 />
 
-                <h2>Login</h2>
+                <h2>Register</h2>
 
                 { this.state.error ? <p className="alert alert-danger">{ this.state.error }</p> : '' }
 
-                <form id="form-login" onSubmit={ this.onSubmit.bind(this) }>
+                <form id="form-register" onSubmit={ this.onSubmit.bind(this) }>
                     <div className="form-group">
                         <label htmlFor="user-username">Username</label>
 
@@ -87,7 +97,7 @@ class UserLogin extends React.Component {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-default" disabled={ this.state.isLoading }>Login</button>
+                    <button type="submit" className="btn btn-default" disabled={ this.state.isLoading }>Register</button>
                 </form>
             </div>
         )
@@ -95,9 +105,9 @@ class UserLogin extends React.Component {
 }
 
 // Contexts
-UserLogin.contextTypes = {
+UserRegister.contextTypes = {
     router: React.PropTypes.object.isRequired
 };
 
 // Finally, export the Component
-export default UserLogin;
+export default UserRegister;

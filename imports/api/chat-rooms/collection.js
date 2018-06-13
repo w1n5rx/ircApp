@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 // Create Collection
-export const ChatRooms = new Mongo.Collection('chat_rooms');
+let ChatRooms = new Mongo.Collection('chat_rooms');
 
 // Define schema
 ChatRooms.schema = new SimpleSchema({
@@ -18,7 +18,9 @@ ChatRooms.schema = new SimpleSchema({
     title: {
         type: String
     },
-
+    isPubic: {
+        type: Boolean
+    },
     // Chat room created at date time
     createdAt: {
         type: Date,
@@ -48,3 +50,6 @@ ChatRooms.schema = new SimpleSchema({
 
 // Attach Schema
 ChatRooms.attachSchema(ChatRooms.schema);
+
+// Finally, export the Collection
+export default ChatRooms;

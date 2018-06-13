@@ -33,3 +33,10 @@ Here are some ideas for this app that could be extended:
 * Categorize a chat as important, 'remind me' feature etc ...
 * Use [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 Examples as shown in [DnD for File Uploading](https://css-tricks.com/drag-and-drop-file-uploading/) and [DnD for Car Parking Game](https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/)
+
+
+### References
+* [Real time Chat App](https://www.pluralsight.com/guides/real-time-chat-app-with-onsenui-and-horizon?hearted=1)
+* [Creating Beautiful Chat App](https://medium.com/@radiegtya/creating-beautiful-chat-app-under-15-min-using-meteoris-22fb2edeacb2)
+* [Building a Chat Application](https://themeteorchef.com/tutorials/building-a-chat-application)
+* [Get Started with Meteor by Building a Chat App](https://www.codementor.io/codeforgeek/getting-started-with-meteor-build-sample-app-du107r3o2)

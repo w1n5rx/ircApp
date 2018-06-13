@@ -1,6 +1,5 @@
 // Imports
 import React from 'react';
-import { Link } from 'react-router';
 import ReactHelmet from 'react-helmet';
 
 // App Imports
@@ -13,7 +12,7 @@ class App extends React.Component {
         return (
             <div>
                 <ReactHelmet
-                    title="Chat"
+                    title="Slack-like chat app"
                     meta={[
                         { "name": "description", "content": "Chat!" },
                         { "property": "og:type", "content": "website" }

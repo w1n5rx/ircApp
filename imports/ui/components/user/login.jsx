@@ -3,11 +3,8 @@
 import React from 'react';
 import ReactHelmet from 'react-helmet';
 
-// App
-import * as UserMethods from '../../../api/users/methods';
-
-// User Register Component
-class UserRegister extends React.Component {
+// User Login Component
+class UserLogin extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,27 +20,20 @@ class UserRegister extends React.Component {
     onSubmit(event) {
         event.preventDefault();
 
-        console.log('E - submit #form-register');
+        console.log('E - submit #form-login');
 
         this.setState({ isLoading: true });
 
-        let input = {};
-        input.username = this.state.username;
-        input.password = this.state.password;
-        console.log(input);
-
-        if(input.username != '' && input.password != '') {
-            UserMethods.register.call(input, (error, response) => {
-                console.log('M - users.register / callback');
+        if(this.state.username != '' && this.state.password != '') {
+            Meteor.loginWithPassword(this.state.username, this.state.password, (error) => {
+                console.log('M - loginWithPassword / callback');
 
                 this.setState({ isLoading: false });
 
                 if(error) {
                     this.setState({ error: error.reason });
                 } else {
-                    if(response.success) {
-                        this.context.router.push('/login');
-                    }
+                    this.context.router.push('/');
                 }
             });
         } else {
@@ -59,16 +49,16 @@ class UserRegister extends React.Component {
 
     render() {
         return (
-            <section>
+            <div className="col s12 m4">
                 <ReactHelmet
-                    title="Register - Zwitter"
+                    title="Login - Simple Chat"
                 />
 
-                <h2>Register</h2>
+                <h2>Login</h2>
 
                 { this.state.error ? <p className="alert alert-danger">{ this.state.error }</p> : '' }
 
-                <form id="form-register" onSubmit={ this.onSubmit.bind(this) }>
+                <form id="form-login" onSubmit={ this.onSubmit.bind(this) }>
                     <div className="form-group">
                         <label htmlFor="user-username">Username</label>
 
@@ -97,17 +87,17 @@ class UserRegister extends React.Component {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-default" disabled={ this.state.isLoading }>Register</button>
+                    <button type="submit" className="btn btn-default" disabled={ this.state.isLoading }>Login</button>
                 </form>
-            </section>
+            </div>
         )
     }
 }
 
 // Contexts
-UserRegister.contextTypes = {
+UserLogin.contextTypes = {
     router: React.PropTypes.object.isRequired
 };
 
 // Finally, export the Component
-export default UserRegister;
+export default UserLogin;
