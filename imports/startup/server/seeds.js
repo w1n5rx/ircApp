@@ -9,35 +9,37 @@ import Chats from '../../api/chats/collection';
 // User
 if(Meteor.users.find().count() == 0) {
     let users = [
-        { username: 'jonsnow', password: '123456'  },
-        { username: 'aryastark', password: '123456'  },
-        { username: 'tyron', password: '123456'  }
+        { username: 'politics', password: '123456'  },
+        { username: 'money', password: '123456'  },
+        { username: 'memes', password: '123456'  }
     ];
-    
+
     users.forEach((user) => {
         Accounts.createUser(user);
     });
-    
-    const jonsnow = Meteor.users.findOne({ username: 'jonsnow' });
-    const aryastark = Meteor.users.findOne({ username: 'aryastark' });
-    const tyron = Meteor.users.findOne({ username: 'tyron' });
-    
+
+    const politics = Meteor.users.findOne({ username: 'politics' });
+    const money = Meteor.users.findOne({ username: 'money' });
+    const memes = Meteor.users.findOne({ username: 'memes' });
+
     // Chat Rooms
     if(ChatRooms.find().count() == 0) {
-        const chatRoomId = ChatRooms.insert({ userId: jonsnow._id, title: 'Jon Snow Room', description: 'And my watch has ended.', isPubic: true });
-        const chatRoomTwoId = ChatRooms.insert({ userId: aryastark._id, title: 'Arya Stark Room', description: 'A lady has no name.', isPubic: true });
+        const chatRoomId = ChatRooms.insert({ userId: politics._id, title: 'Politics Room', description: 'here we discuss about political climate.', isPubic: true });
+        const chatRoomTwoId = ChatRooms.insert({ userId: money._id, title: 'Money Room', description: 'money talks.', isPubic: true });
+        const chatRoomThreeId = ChatRooms.insert({ userId: memes._id, title: 'Memes Room', description: 'feel free to share memes.', isPubic: true });
 
         // Chat Room Members
         if(ChatRoomMembers.find().count() == 0) {
-            ChatRoomMembers.insert({ chatRoomId, userId: jonsnow._id });
-            ChatRoomMembers.insert({ chatRoomId, userId: aryastark._id });
-            ChatRoomMembers.insert({ chatRoomId, userId: tyron._id });
+            ChatRoomMembers.insert({ chatRoomId, userId: politics._id });
+            ChatRoomMembers.insert({ chatRoomId, userId: money._id });
+            ChatRoomMembers.insert({ chatRoomId, userId: memes._id });
         }
-        
+
+        // Chats
         if(Chats.find().count() == 0) {
-            Chats.insert({ chatRoomId, userId: jonsnow._id, message: 'Hello from jonsnow' });
-            Chats.insert({ chatRoomId, userId: aryastark._id, message: 'Hello from aryastark' });
-            Chats.insert({ chatRoomId, userId: tyron._id, message: 'Hello from tyron' });
+            Chats.insert({ chatRoomId, userId: politics._id, message: 'Welcome to politics room' });
+            Chats.insert({ chatRoomId, userId: money._id, message: 'Welcome to money room' });
+            Chats.insert({ chatRoomId, userId: memes._id, message: 'Welcome to memes room' });
         }
     }
 }

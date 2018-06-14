@@ -22,10 +22,11 @@ ChatRooms.schema = new SimpleSchema({
     description: {
         type: String
     },
-        
+
     isPubic: {
         type: Boolean
     },
+
     // Chat room created at date time
     createdAt: {
         type: Date,

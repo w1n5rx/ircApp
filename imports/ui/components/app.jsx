@@ -3,8 +3,8 @@ import React from 'react';
 import ReactHelmet from 'react-helmet';
 
 // App Imports
-import Header from '../components/common/header';
-import MenuPrimaryContainer from '../components/common/menus/primary_container';
+import MenuPrimaryContainer from '../components/common/menus/primary-container.jsx';
+import HeaderContainer from '../components/common/header-container';
 
 // App (Layout) Component
 class App extends React.Component {
@@ -12,14 +12,14 @@ class App extends React.Component {
         return (
             <div>
                 <ReactHelmet
-                    title="Slack-like chat app"
+                    title="Slack-like chat App"
                     meta={[
                         { "name": "description", "content": "Chat!" },
                         { "property": "og:type", "content": "website" }
                     ]}
                 />
 
-                <Header />
+                <HeaderContainer />
 
                 <div className="row">
                     <div className="col s12 m2">

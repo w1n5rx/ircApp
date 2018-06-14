@@ -13,9 +13,9 @@ class Header extends React.Component {
     render() {
         return (
             <header>
-                <Link to="/" className="logo header-icon float-left" title="Slack-like chat app"><i className="material-icons">chat</i></Link>
+                <Link to="/" className="logo header-icon float-left" title="Slack-like chat App"><i className="material-icons">chat</i></Link>
 
-                <MenuSecondary />
+                <MenuSecondary user={ this.props.user } />
             </header>
         )
     }

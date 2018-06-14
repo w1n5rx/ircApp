@@ -1,4 +1,4 @@
-// Imports
+// App Imports
 
 // Chat Room Members
 import '../../api/chat-room-members/methods';
@@ -13,3 +13,4 @@ import '../../api/chats/publish';
 
 // Users
 import '../../api/users/methods';
+import '../../api/users/publish';

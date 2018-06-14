@@ -9,7 +9,7 @@ class About extends React.Component {
         return (
             <div className="col s12 m10">
                 <ReactHelmet
-                    title="Slack-like chat app"
+                    title="About - Slack-like chat App"
                 />
             </div>
         )

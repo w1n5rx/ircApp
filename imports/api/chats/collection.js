@@ -53,4 +53,6 @@ Chats.schema = new SimpleSchema({
 
 // Attach Schema
 Chats.attachSchema(Chats.schema);
+
+// Finally, export the Collection
 export default Chats;
