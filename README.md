@@ -25,6 +25,12 @@ Create a slack-like chat application using ReactJS and Meteor.
 ~~https://ircapp.herokuapp.com/~~
 ```
 
+### To run the app locally
+
+```
+<project directory> meteor
+```
+
 ### <a name="ideas"></a> Ideas for Improvement
 
 Here are some ideas for this app that could be extended:
@@ -42,3 +48,4 @@ Examples as shown in [DnD for File Uploading](https://css-tricks.com/drag-and-dr
 * [Get Started with Meteor by Building a Chat App](https://www.codementor.io/codeforgeek/getting-started-with-meteor-build-sample-app-du107r3o2)
 * [Building a Slack Clone in Meteor.js](https://scotch.io/tutorials/building-a-slack-clone-in-meteor-js-getting-started)
 * [Building a Live Chat App React Meteor](https://www.youtube.com/watch?v=xcej5OboUVM&feature=youtu.be)
+* [Meteor CLI commands](https://docs.meteor.com/commandline.html#meteorhelp)
